@@ -3,50 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Sekolah</title>
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Portal Sekolah - SMA Negeri 12 Muna Barat</title>
+  
+  <!-- Google Fonts & FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    :root {
-      --green-primary: #109e6c;
-      --green-hover: #0d8a5e;
-      --blue-accent: #38bdf8;
-      --blue-btn: #1668dc;
-      --dark-card: rgba(24, 30, 38, 0.9);
-      --glass-modal: rgba(82, 88, 96, 0.72);
-      --glass-input: rgba(145, 154, 162, 0.45);
-      --glass-border: rgba(255, 255, 255, 0.25);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      min-height: 100vh;
-      background-color: #1e242b;
+      background-color: #0b1120;
       color: #ffffff;
       position: relative;
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Background Layer Blur */
+    /* Background Layer menggunakan bg.png */
     .bg-wallpaper {
       position: fixed;
       inset: 0;
       z-index: -2;
-      background: linear-gradient(180deg, rgba(48, 56, 65, 0.82) 0%, rgba(26, 32, 40, 0.92) 50%, rgba(20, 25, 32, 0.96) 100%),
-                  url('2.jpeg') center/cover no-repeat;
-      filter: blur(5px);
+      background-image: linear-gradient(180deg, rgba(11, 17, 32, 0.72) 0%, rgba(11, 17, 32, 0.88) 100%), url('bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(4px);
       transform: scale(1.05);
     }
 
@@ -57,20 +46,20 @@
       padding: 34px 16px 60px;
     }
 
-    /* ==================== HERO SECTION ==================== */
+    /* ================= HERO SECTION ================= */
     .hero {
       text-align: center;
-      margin-bottom: 42px;
+      margin-bottom: 36px;
     }
 
     .logo-wrapper {
-      width: 112px;
-      height: 112px;
+      width: 108px;
+      height: 108px;
       margin: 0 auto 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.45));
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
     }
 
     .logo-wrapper img {
@@ -79,712 +68,223 @@
       object-fit: contain;
     }
 
-    .hero-title {
+    .school-title {
       font-size: 23px;
       font-weight: 800;
       letter-spacing: -0.3px;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, #ffffff 60%, #a3b8cc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 
-    .hero-subtitle {
+    .school-desc {
       font-size: 13.5px;
+      color: #cbd5e1;
       line-height: 1.55;
-      color: #d0d7de;
-      padding: 0 6px;
-      margin-bottom: 28px;
-      font-weight: 400;
+      margin-bottom: 24px;
+      padding: 0 8px;
     }
 
-    .hero-actions {
+    .action-buttons {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      padding: 0 20px;
+      gap: 12px;
     }
 
     .btn-main {
       width: 100%;
-      height: 50px;
-      border-radius: 12px;
-      font-size: 15.5px;
+      padding: 15px 20px;
+      border-radius: 14px;
+      font-size: 15px;
       font-weight: 700;
+      border: none;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      cursor: pointer;
       transition: all 0.2s ease;
-      border: none;
-      color: #ffffff;
     }
 
-    .btn-main:active {
+    .btn-exam {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-exam:active {
       transform: scale(0.98);
     }
 
-    .btn-ujian {
-      background-color: var(--green-primary);
-      box-shadow: 0 4px 15px rgba(16, 158, 108, 0.35);
+    .btn-login {
+      background: rgba(30, 41, 59, 0.78);
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
     }
 
-    .btn-ujian:hover {
-      background-color: var(--green-hover);
+    .btn-login:active {
+      transform: scale(0.98);
+      background: rgba(30, 41, 59, 0.95);
     }
 
-    .btn-login-trigger {
-      background: rgba(82, 88, 98, 0.75);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    /* ================= SECTION HEADERS ================= */
+    .section-header {
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    .btn-login-trigger:hover {
-      background: rgba(96, 103, 114, 0.85);
-    }
-
-    /* ==================== SECTION HEADERS ==================== */
-    .section-block {
-      margin-bottom: 38px;
-    }
-
-    .section-title-row {
+    .section-title {
+      font-size: 18.5px;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 9px;
       margin-bottom: 6px;
-    }
-
-    .section-title-row i {
-      color: #2da4ff;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .section-title-row h2 {
-      font-size: 21px;
-      font-weight: 800;
       color: #ffffff;
-      text-align: center;
-      line-height: 1.25;
-      letter-spacing: -0.3px;
+    }
+
+    .section-title i {
+      color: #38bdf8;
     }
 
     .section-sub {
-      text-align: center;
-      font-size: 13px;
-      color: #adbac7;
+      font-size: 12.5px;
+      color: #94a3b8;
       line-height: 1.45;
-      margin-bottom: 18px;
-      padding: 0 10px;
     }
 
-    /* ==================== GALLERY CAROUSEL ==================== */
-    .carousel-box {
+    /* ================= GALLERY SLIDER ================= */
+    .gallery-section {
+      margin-bottom: 40px;
+    }
+
+    .slider-card {
       position: relative;
       width: 100%;
-      height: 220px;
-      border-radius: 16px;
+      height: 225px;
+      border-radius: 18px;
       overflow: hidden;
-      background-color: #161b22;
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
     }
 
-    .carousel-slide {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-
-    .carousel-slide img {
+    .slider-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
       transition: opacity 0.35s ease;
     }
 
-    .carousel-caption-overlay {
+    .slider-overlay {
       position: absolute;
-      inset: auto 0 0 0;
-      height: 75px;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 35%, rgba(11, 17, 32, 0.92) 100%);
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      padding: 0 16px 13px;
+      padding: 16px;
       text-align: center;
     }
 
-    .carousel-caption-overlay span {
+    .slider-caption {
       font-size: 13px;
-      font-weight: 700;
-      color: #ffffff;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+      font-weight: 600;
+      color: #f8fafc;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
 
-    .carousel-arrow {
+    .slider-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: rgba(28, 33, 40, 0.72);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 3;
-      transition: background 0.2s;
+      backdrop-filter: blur(6px);
+      z-index: 5;
     }
 
-    .carousel-arrow:hover {
-      background: rgba(45, 52, 62, 0.9);
-    }
+    .slider-btn.prev { left: 10px; }
+    .slider-btn.next { right: 10px; }
 
-    .carousel-arrow.prev {
-      left: 10px;
-    }
-
-    .carousel-arrow.next {
-      right: 10px;
-    }
-
-    .carousel-dots {
+    .slider-dots {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin-top: 15px;
+      gap: 7px;
+      margin-top: 12px;
     }
 
     .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background-color: rgba(255, 255, 255, 0.25);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transition: all 0.25s ease;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
 
     .dot.active {
-      width: 28px;
-      background-color: #2188cc;
+      width: 22px;
+      border-radius: 10px;
+      background: #3b82f6;
     }
 
-    /* ==================== ANNOUNCEMENT CARDS ==================== */
-    .announcement-list {
+    /* ================= ANNOUNCEMENTS ================= */
+    .announce-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
 
     .announce-card {
-      background: var(--dark-card);
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 16px;
       backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 18px;
-      padding: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     .announce-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 13px;
+      margin-bottom: 11px;
     }
 
-    .badge-priority {
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11.5px;
       font-weight: 700;
     }
 
-    .badge-priority.tinggi {
-      background: rgba(127, 29, 29, 0.45);
+    .badge-high {
+      background: rgba(239, 68, 68, 0.2);
       color: #f87171;
       border: 1px solid rgba(239, 68, 68, 0.35);
     }
 
-    .badge-priority.normal {
-      background: rgba(12, 74, 110, 0.5);
+    .badge-normal {
+      background: rgba(56, 189, 248, 0.18);
       color: #38bdf8;
       border: 1px solid rgba(56, 189, 248, 0.35);
     }
 
     .announce-date {
-      font-size: 12px;
-      color: #8b949e;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .announce-title {
-      font-size: 16.5px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 10px;
-      line-height: 1.35;
-    }
-
-    .announce-excerpt {
-      font-size: 13.5px;
-      color: #c9d1d9;
-      line-height: 1.58;
-      margin-bottom: 16px;
-    }
-
-    .announce-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      padding-top: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12.5px;
-    }
-
-    .announce-author {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      color: #8b949e;
-      font-weight: 500;
-    }
-
-    .announce-author i {
-      color: #38bdf8;
-      font-size: 13px;
-    }
-
-    .announce-readmore {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #38bdf8;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-size: 12.5px;
-    }
-
-    .announce-readmore:hover {
-      text-decoration: underline;
-    }
-
-    /* ==================== MODALS GENERAL ==================== */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(14, 18, 24, 0.72);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s ease, visibility 0.25s ease;
-    }
-
-    .modal-backdrop.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Matte Glass Card (Login, Daftar, Ujian) */
-    .matte-modal {
-      width: 100%;
-      max-width: 375px;
-      background: linear-gradient(160deg, rgba(82, 88, 97, 0.82) 0%, rgba(72, 78, 86, 0.88) 100%);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 26px;
-      padding: 26px 22px 24px;
-      position: relative;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-      transform: translateY(12px) scale(0.98);
-      transition: transform 0.25s ease;
-    }
-
-    .modal-backdrop.show .matte-modal,
-    .modal-backdrop.show .detail-modal {
-      transform: translateY(0) scale(1);
-    }
-
-    /* Close Button Circle */
-    .btn-close-circle {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background 0.2s;
-    }
-
-    .btn-close-circle:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    /* ==================== MODAL: UJIAN SISWA ==================== */
-    .ujian-icon-circle {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: rgba(16, 158, 108, 0.28);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 4px auto 16px;
-      color: #10b981;
-      font-size: 27px;
-    }
-
-    .modal-center-title {
-      text-align: center;
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .modal-center-sub {
-      text-align: center;
-      font-size: 12.5px;
-      color: #e2e8f0;
-      line-height: 1.45;
-      margin-bottom: 22px;
-      padding: 0 8px;
-    }
-
-    /* Glass Inputs */
-    .input-group {
-      position: relative;
-      margin-bottom: 15px;
-      width: 100%;
-    }
-
-    .glass-input {
-      width: 100%;
-      height: 50px;
-      border-radius: 15px;
-      background: rgba(148, 157, 165, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      padding: 0 42px 0 16px;
-      color: #ffffff;
-      font-size: 14.5px;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-
-    .glass-input::placeholder {
-      color: rgba(255, 255, 255, 0.78);
-      font-weight: 400;
-    }
-
-    .glass-input:focus {
-      background: rgba(162, 171, 180, 0.58);
-      border-color: rgba(255, 255, 255, 0.85);
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
-    }
-
-    .glass-input.token-upper {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-      font-size: 13.5px;
-    }
-
-    .glass-input.token-upper::placeholder {
-      letter-spacing: 0.8px;
-      font-weight: 600;
-    }
-
-    .input-icon {
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 16px;
-      pointer-events: none;
-    }
-
-    .input-icon.clickable {
-      pointer-events: auto;
-      cursor: pointer;
-    }
-
-    .btn-submit-green {
-      width: 100%;
-      height: 50px;
-      border-radius: 15px;
-      background: #0ea572;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      cursor: pointer;
-      margin-top: 4px;
-      transition: background 0.2s;
-    }
-
-    .btn-submit-green:hover {
-      background: #0b8e61;
-    }
-
-    /* ==================== MODAL: LOGIN ==================== */
-    .modal-left-title {
-      font-size: 29px;
-      font-weight: 800;
-      margin-bottom: 5px;
-      letter-spacing: -0.5px;
-    }
-
-    .modal-left-sub {
-      font-size: 12.5px;
-      color: #e2e8f0;
-      margin-bottom: 18px;
-    }
-
-    /* Role Toggle Tabs */
-    .role-tabs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: rgba(52, 58, 66, 0.65);
-      padding: 4px;
-      border-radius: 13px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .role-tab {
-      height: 38px;
-      border-radius: 10px;
-      border: none;
-      background: transparent;
-      color: #cbd5e1;
-      font-size: 14px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .role-tab.active {
-      background: rgba(132, 139, 148, 0.75);
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
-    }
-
-    .btn-submit-glass {
-      width: 100%;
-      height: 50px;
-      border-radius: 15px;
-      background: rgba(145, 154, 162, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.55);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 2px;
-      margin-bottom: 18px;
-      transition: background 0.2s;
-    }
-
-    .btn-submit-glass:hover {
-      background: rgba(160, 169, 177, 0.78);
-    }
-
-    .modal-switch-text {
-      text-align: center;
-      font-size: 12.5px;
-      color: #e2e8f0;
-    }
-
-    .modal-switch-text a {
-      color: #ffffff;
-      font-weight: 700;
-      text-decoration: underline;
-      cursor: pointer;
-      margin-left: 3px;
-    }
-
-    .matte-divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.14);
-      margin: 18px 0 14px;
-    }
-
-    .matte-quote {
-      text-align: center;
-      font-size: 9.5px;
-      line-height: 1.55;
-      letter-spacing: 1.6px;
-      color: #cbd5e1;
-      text-transform: uppercase;
-    }
-
-    .matte-quote strong {
-      display: block;
-      margin-top: 2px;
-      color: #ffffff;
-      font-weight: 800;
-      letter-spacing: 2.2px;
-    }
-
-    /* ==================== MODAL: DAFTAR AKUN GURU ==================== */
-    .signup-title {
-      font-size: 23px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      letter-spacing: -0.4px;
-    }
-
-    .form-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 11px;
-    }
-
-    .form-grid-2 .input-group {
-      margin-bottom: 12px;
-    }
-
-    .input-group.full-row {
-      margin-bottom: 12px;
-    }
-
-    .form-grid-2 .glass-input {
-      padding: 0 36px 0 13px;
-      font-size: 13.5px;
-    }
-
-    .form-grid-2 .input-icon {
-      right: 12px;
-      font-size: 14.5px;
-    }
-
-    /* ==================== MODAL: DETAIL PENGUMUMAN ==================== */
-    .detail-modal {
-      width: 100%;
-      max-width: 385px;
-      background: #181d24;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
-      transform: translateY(12px) scale(0.98);
-      transition: transform 0.25s ease;
-    }
-
-    .detail-header {
-      padding: 18px 20px 15px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .detail-header-left {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .detail-header-left i {
-      color: #2563eb;
-      font-size: 19px;
-      margin-top: 3px;
-    }
-
-    .detail-header-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.35;
-    }
-
-    .btn-close-plain {
-      background: none;
-      border: none;
-      color: #8b949e;
-      font-size: 18px;
-      cursor: pointer;
-      padding: 2px 4px;
-    }
-
-    .btn-close-plain:hover {
-      color: #ffffff;
-    }
-
-    .detail-body {
-      padding: 18px 20px 20px;
-    }
-
-    .detail-meta-box {
-      background: #222933;
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 18px;
-    }
-
-    .detail-badges {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 9px;
-    }
-
-    .badge-kategori {
-      background: rgba(14, 116, 144, 0.4);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      padding: 3px 11px;
-      border-radius: 999px;
-      font-size: 11.5px;
-      font-weight: 700;
-    }
-
-    .detail-submeta {
       font-size: 12px;
       color: #94a3b8;
       display: flex;
@@ -792,423 +292,216 @@
       gap: 6px;
     }
 
-    .detail-submeta strong {
-      color: #cbd5e1;
+    .announce-title {
+      font-size: 16px;
       font-weight: 700;
-    }
-
-    .detail-content-text {
-      font-size: 14.5px;
-      line-height: 1.6;
-      color: #e2e8f0;
-      margin-bottom: 24px;
-    }
-
-    .detail-footer {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .btn-tutup-blue {
-      background: var(--blue-btn);
       color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 24px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
+      margin-bottom: 8px;
+      line-height: 1.35;
     }
 
-    .btn-tutup-blue:hover {
-      background: #1d4ed8;
+    .announce-excerpt {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    .announce-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .announce-author {
+      font-size: 12px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .announce-link {
+      background: none;
+      border: none;
+      color: #38bdf8;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Blur -->
+  <!-- Background Layer -->
   <div class="bg-wallpaper" id="bgWallpaper"></div>
 
-  <!-- Main Mobile Container -->
-  <main class="app-container">
-    
-    <!-- HERO SECTION -->
-    <section class="hero">
+  <div class="app-container">
+    <!-- Hero Section -->
+    <header class="hero">
       <div class="logo-wrapper">
-        <img id="schoolLogo" src="logo.jpeg" alt="Logo SMA Negeri 12 Muna Barat">
+        <img id="schoolLogo" src="logo.png" alt="Logo SMA Negeri 12 Muna Barat">
       </div>
-      <h1 class="hero-title">SMA Negeri 12 Muna Barat</h1>
-      <p class="hero-subtitle">
+      <h1 class="school-title">SMA Negeri 12 Muna Barat</h1>
+      <p class="school-desc">
         Portal resmi layanan akademik, absensi cerdas, dan sistem ujian berbasis komputer (CBT) terpadu.
       </p>
-
-      <div class="hero-actions">
-        <button class="btn-main btn-ujian" onclick="openModal('modalUjian')">
-          <i class="fa-solid fa-pen"></i>
-          <span>Ujian Siswa</span>
+      <div class="action-buttons">
+        <button class="btn-main btn-exam" onclick="alert('Fitur Ujian Siswa segera hadir!')">
+          <i class="fa-solid fa-pen"></i> Ujian Siswa
         </button>
-        <button class="btn-main btn-login-trigger" onclick="openModal('modalLogin')">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          <span>Login (Admin &amp; Guru)</span>
+        <button class="btn-main btn-login" onclick="alert('Fitur Login Admin & Guru segera hadir!')">
+          <i class="fa-solid fa-right-to-bracket"></i> Login (Admin & Guru)
         </button>
       </div>
-    </section>
+    </header>
 
-    <!-- GALERI AKTIVITAS SEKOLAH -->
-    <section class="section-block">
-      <div class="section-title-row">
-        <i class="fa-regular fa-images"></i>
-        <h2>Galeri Aktivitas Sekolah</h2>
+    <!-- Galeri Aktivitas Sekolah -->
+    <section class="gallery-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-regular fa-images"></i> Galeri Aktivitas Sekolah
+        </h2>
+        <p class="section-sub">Dokumentasi kegiatan seputar sekolah</p>
       </div>
-      <p class="section-sub">Dokumentasi kegiatan seputar sekolah</p>
 
-      <div class="carousel-box">
-        <button class="carousel-arrow prev" onclick="changeSlide(-1)" aria-label="Slide Sebelumnya">
+      <div class="slider-card">
+        <button class="slider-btn prev" onclick="changeSlide(-1)">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
-        
-        <div class="carousel-slide">
-          <img id="carouselImg" src="" alt="Galeri Sekolah">
-          <div class="carousel-caption-overlay">
-            <span id="carouselCaption"></span>
-          </div>
+        <img id="slideImage" class="slider-img" src="1.jpeg" alt="Galeri Sekolah">
+        <div class="slider-overlay">
+          <p id="slideCaption" class="slider-caption">Kegiatan pembelajaran didalam kelas</p>
         </div>
-
-        <button class="carousel-arrow next" onclick="changeSlide(1)" aria-label="Slide Berikutnya">
+        <button class="slider-btn next" onclick="changeSlide(1)">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
-
-      <div class="carousel-dots" id="carouselDots"></div>
+      <div class="slider-dots" id="sliderDots"></div>
     </section>
 
-    <!-- JENDELA INFORMASI & PENGUMUMAN SEKOLAH -->
-    <section class="section-block">
-      <div class="section-title-row">
-        <i class="fa-solid fa-bullhorn"></i>
-        <h2>Jendela Informasi &amp;<br>Pengumuman Sekolah</h2>
-      </div>
-      <p class="section-sub">
-        Pemberitahuan terkini, agenda akademik, tata tertib, dan pengumuman resmi sekolah
-      </p>
-
-      <div class="announcement-list" id="announcementList"></div>
-    </section>
-
-  </main>
-
-  <!-- ==================== 1. MODAL UJIAN SISWA ==================== -->
-  <div class="modal-backdrop" id="modalUjian" onclick="backdropClose(event, 'modalUjian')">
-    <div class="matte-modal">
-      <button class="btn-close-circle" onclick="closeModal('modalUjian')">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="ujian-icon-circle">
-        <i class="fa-solid fa-graduation-cap"></i>
-      </div>
-
-      <h3 class="modal-center-title">Ujian Siswa</h3>
-      <p class="modal-center-sub">Masukkan Nama Lengkap dan Token Ujian dari Guru</p>
-
-      <form onsubmit="handleUjianSubmit(event)">
-        <div class="input-group">
-          <input type="text" class="glass-input" placeholder="Nama Lengkap Siswa" required>
-          <i class="fa-regular fa-user input-icon"></i>
-        </div>
-
-        <div class="input-group">
-          <input type="text" class="glass-input token-upper" placeholder="TOKEN UJIAN (CONTOH:" required>
-          <i class="fa-solid fa-key input-icon"></i>
-        </div>
-
-        <button type="submit" class="btn-submit-green">
-          <i class="fa-solid fa-play"></i>
-          <span>Lanjut ke Ujian</span>
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ==================== 2. MODAL LOGIN (ADMIN & GURU) ==================== -->
-  <div class="modal-backdrop" id="modalLogin" onclick="backdropClose(event, 'modalLogin')">
-    <div class="matte-modal">
-      <button class="btn-close-circle" onclick="closeModal('modalLogin')">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <h3 class="modal-left-title">Login</h3>
-      <p class="modal-left-sub">Welcome back please login to your account</p>
-
-      <div class="role-tabs">
-        <button type="button" class="role-tab active" id="tabGuru" onclick="switchRole('guru')">
-          <i class="fa-solid fa-chalkboard-user"></i>
-          <span>Guru</span>
-        </button>
-        <button type="button" class="role-tab" id="tabAdmin" onclick="switchRole('admin')">
-          <i class="fa-solid fa-user-shield"></i>
-          <span>Admin</span>
-        </button>
-      </div>
-
-      <form onsubmit="handleLoginSubmit(event)">
-        <div class="input-group">
-          <input type="text" class="glass-input" placeholder="User Name" required>
-          <i class="fa-regular fa-user input-icon"></i>
-        </div>
-
-        <div class="input-group">
-          <input type="password" class="glass-input" id="loginPassword" placeholder="Password" required>
-          <i class="fa-regular fa-eye-slash input-icon clickable" onclick="togglePassword('loginPassword', this)"></i>
-        </div>
-
-        <button type="submit" class="btn-submit-glass">Login</button>
-      </form>
-
-      <p class="modal-switch-text">
-        Don't have an account? <a onclick="switchModal('modalLogin', 'modalSignup')">Signup</a>
-      </p>
-
-      <div class="matte-divider"></div>
-      <div class="matte-quote">
-        «BLURRING THE LINES BETWEEN<br>REALITY AND ILLUSION.»
-        <strong>MATTE GLASS</strong>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== 3. MODAL DAFTAR AKUN GURU ==================== -->
-  <div class="modal-backdrop" id="modalSignup" onclick="backdropClose(event, 'modalSignup')">
-    <div class="matte-modal">
-      <button class="btn-close-circle" onclick="closeModal('modalSignup')">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <h3 class="signup-title">Daftar Akun Guru</h3>
-      <p class="modal-left-sub">Lengkapi data untuk pendaftaran guru baru</p>
-
-      <form onsubmit="handleSignupSubmit(event)">
-        <div class="form-grid-2">
-          <div class="input-group">
-            <input type="text" class="glass-input" placeholder="User Name" required>
-            <i class="fa-regular fa-user input-icon"></i>
-          </div>
-          <div class="input-group">
-            <input type="password" class="glass-input" id="signupPassword" placeholder="Password" required>
-            <i class="fa-regular fa-eye-slash input-icon clickable" onclick="togglePassword('signupPassword', this)"></i>
-          </div>
-        </div>
-
-        <div class="input-group full-row">
-          <input type="text" class="glass-input" placeholder="Nama Lengkap (sesuai KTP) *" required>
-          <i class="fa-regular fa-id-badge input-icon"></i>
-        </div>
-
-        <div class="form-grid-2">
-          <div class="input-group">
-            <input type="email" class="glass-input" placeholder="Email *" required>
-            <i class="fa-regular fa-envelope input-icon"></i>
-          </div>
-          <div class="input-group">
-            <input type="text" class="glass-input" placeholder="NIP (opsio">
-            <i class="fa-solid fa-fingerprint input-icon"></i>
-          </div>
-        </div>
-
-        <div class="form-grid-2">
-          <div class="input-group">
-            <input type="tel" class="glass-input" placeholder="Nomor Tel">
-            <i class="fa-solid fa-phone input-icon"></i>
-          </div>
-          <div class="input-group">
-            <input type="text" class="glass-input" placeholder="Alamat (op">
-            <i class="fa-solid fa-location-dot input-icon"></i>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-submit-glass">Daftar Sekarang</button>
-      </form>
-
-      <p class="modal-switch-text">
-        Sudah memiliki akun? <a onclick="switchModal('modalSignup', 'modalLogin')">Login di sini</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- ==================== 4. MODAL DETAIL PENGUMUMAN ==================== -->
-  <div class="modal-backdrop" id="modalDetail" onclick="backdropClose(event, 'modalDetail')">
-    <div class="detail-modal">
-      <div class="detail-header">
-        <div class="detail-header-left">
-          <i class="fa-solid fa-bullhorn"></i>
-          <h3 class="detail-header-title" id="detailTitle">Selamat Datang di Portal Sekolah</h3>
-        </div>
-        <button class="btn-close-plain" onclick="closeModal('modalDetail')">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <div class="detail-body">
-        <div class="detail-meta-box">
-          <div class="detail-badges">
-            <span id="detailPriorityBadge" class="badge-priority tinggi">
-              <i class="fa-solid fa-circle-exclamation"></i> Prioritas Tinggi
-            </span>
-            <span id="detailCategoryBadge" class="badge-kategori">Umum</span>
-          </div>
-          <div class="detail-submeta">
-            <i class="fa-regular fa-calendar-days"></i>
-            <span id="detailDate">15 Oktober 2026</span>
-            <span>•</span>
-            <span>Oleh: <strong id="detailAuthor">Administrator</strong></span>
-          </div>
-        </div>
-
-        <p class="detail-content-text" id="detailContent">
-          Portal Sekolah resmi diluncurkan. Semua guru dan siswa dapat mengakses portal ini untuk kebutuhan akademik.
+    <!-- Jendela Informasi & Pengumuman -->
+    <section class="announce-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-bullhorn"></i> Jendela Informasi &<br>Pengumuman Sekolah
+        </h2>
+        <p class="section-sub">
+          Pemberitahuan terkini, agenda akademik, tata tertib, dan pengumuman resmi sekolah
         </p>
-
-        <div class="detail-footer">
-          <button class="btn-tutup-blue" onclick="closeModal('modalDetail')">Tutup</button>
-        </div>
       </div>
-    </div>
+
+      <div class="announce-list" id="announceContainer"></div>
+    </section>
+
+    <footer>
+      &copy; 2026 SMAN 12 Muna Barat • Portal Sekolah. Seluruh Hak Cipta Dilindungi.
+    </footer>
   </div>
 
   <script>
-    /* =========================================================================
-       KONFIGURASI FOLDER & NAMA FILE GAMBAR DI GITHUB
-       - Otomatis mengecek di root ("1.jpeg"), folder "test/1.jpeg", atau "img/1.jpeg"
-       - Jika Anda menaruh gambar di folder khusus lain, ubah IMAGE_FOLDER di bawah.
-    ========================================================================= */
-    const IMAGE_FOLDER = ""; // Kosongkan jika sejajar index.html, atau isi "test/" jika di dalam folder test
-    const LOGO_FILE = "logo.jpeg";
-
-    const GALLERY_SLIDES = [
-      {
-        file: "1.jpeg",
-        caption: "Kegiatan pembelajaran didalam kelas"
-      },
-      {
-        file: "2.jpeg",
-        caption: "Rencana perkemahan bersama SMA Negeri 12 Muna Barat"
-      },
-      {
-        file: "3.jpeg",
-        caption: "Jum'at Bersih, kegiatan bersih-bersih ruang OSIS"
-      },
-      {
-        file: "4.jpeg",
-        caption: "Uji Coba Aplikasi Portal_sekolah di kelas X"
-      },
-      {
-        file: "5.jpeg",
-        caption: "Ujian informatika kelas XII"
-      }
+    // Daftar file gambar sesuai isi folder: 1.jpeg - 5.jpeg
+    const SLIDES_DATA = [
+      { file: '1.jpeg', caption: 'Kegiatan pembelajaran didalam kelas' },
+      { file: '2.jpeg', caption: 'Rencana perkemahan bersama SMA Negeri 12 Muna Barat.' },
+      { file: '3.jpeg', caption: "Jum'at Bersih, Kegiatan bersih-bersih ruang OSIS" },
+      { file: '4.jpeg', caption: 'Uji Coba Aplikasi Portal_sekolah di kelas X' },
+      { file: '5.jpeg', caption: 'Ujian informatika kelas XII' }
     ];
 
-    // Fungsi pintar untuk memuat gambar dari root atau sub-folder (seperti "test/") di GitHub
-    function loadSmartImage(imgElement, fileName, fallbackSvgOrUrl) {
-      const pathsToTry = [
-        IMAGE_FOLDER + fileName,
-        "test/" + fileName,
-        "./" + fileName,
-        "img/" + fileName
-      ];
-      let attempt = 0;
-
-      function tryNext() {
-        if (attempt < pathsToTry.length) {
-          imgElement.src = pathsToTry[attempt];
-          attempt++;
-        } else if (fallbackSvgOrUrl) {
-          imgElement.onerror = null;
-          imgElement.src = fallbackSvgOrUrl;
-        }
-      }
-
-      imgElement.onerror = tryNext;
-      tryNext();
-    }
-
-    /* =========================================================================
-       DATA PENGUMUMAN SEKOLAH
-    ========================================================================= */
     const ANNOUNCEMENTS = [
       {
-        id: 1,
-        title: "Selamat Datang di Portal Sekolah",
-        priority: "Tinggi",
-        category: "Umum",
-        date: "15 Oktober 2026",
-        author: "Administrator",
-        content: "Portal Sekolah resmi diluncurkan. Semua guru dan siswa dapat mengakses portal ini untuk kebutuhan akademik."
+        priority: 'high',
+        label: 'Tinggi',
+        date: '15 Oktober 2026',
+        title: 'Selamat Datang di Portal Sekolah',
+        excerpt: 'Portal Sekolah resmi diluncurkan. Semua guru dan siswa dapat mengakses portal ini untuk kebutuhan akademik.',
+        author: 'Administrator'
       },
       {
-        id: 2,
-        title: "Jadwal Ujian Tengah Semester",
-        priority: "Normal",
-        category: "Akademik",
-        date: "15 Oktober 2026",
-        author: "Administrator",
-        content: "Ujian Tengah Semester akan dilaksanakan pada tanggal yang telah ditentukan. Mohon persiapan."
+        priority: 'normal',
+        label: 'Normal',
+        date: '15 Oktober 2026',
+        title: 'Jadwal Ujian Tengah Semester',
+        excerpt: 'Ujian Tengah Semester akan dilaksanakan pada tanggal yang telah ditentukan. Mohon persiapan.',
+        author: 'Administrator'
       },
       {
-        id: 3,
-        title: "Ulangan Bab 1 INFORMATIKA",
-        priority: "Normal",
-        category: "Ujian CBT",
-        date: "17 Oktober 2026",
-        author: "LA ODE HARNADO",
-        content: "Harap mengerjakan soal ulangan dengan tenang, Soal basis mobile ini dilengkapi dengan fitur anti-curang, dalam mode mengerjakan siswa di larang berganti atau keluar tab ulangan, karena sistem akan menghentikan otomatis ulangan dan terdeteksi curang di monitor dashboard guru."
+        priority: 'normal',
+        label: 'Normal',
+        date: '17 Oktober 2026',
+        title: 'Ulangan Bab 1 INFORMATIKA',
+        excerpt: 'Harap mengerjakan soal ulangan dengan tenang, Soal berbasis mobile ini dilengkapi dengan fitur anti-curang, dalam mode mengerjakan siswa dilarang berganti atau keluar tab ulangan, karena sistem akan menghentikan otomatis ulangan dan terdeteksi curang di monitor dashboard guru.',
+        author: 'LA ODE HARNADO'
       }
     ];
 
-    /* =========================================================================
-       INISIALISASI LOGO & CAROUSEL GALERI
-    ========================================================================= */
-    const logoFallback = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><polygon points='60,6 114,44 94,110 26,110 6,44' fill='%2315803d' stroke='%23ffffff' stroke-width='4'/><polygon points='60,22 86,82 34,82' fill='%23dc2626'/><rect x='28' y='84' width='64' height='18' fill='%2338bdf8'/><text x='60' y='68' font-size='13' font-family='Arial' font-weight='bold' fill='%23ffffff' text-anchor='middle'>SMAN 12</text></svg>";
-    loadSmartImage(document.getElementById('schoolLogo'), LOGO_FILE, logoFallback);
-
+    let assetPrefix = '';
     let currentSlide = 0;
     let slideInterval;
 
-    const imgEl = document.getElementById('carouselImg');
-    const captionEl = document.getElementById('carouselCaption');
-    const dotsContainer = document.getElementById('carouselDots');
+    // Auto-detect apakah gambar ditaruh di root atau di dalam subfolder test/
+    function detectFolderAndInit() {
+      const testImg = new Image();
+      testImg.onload = function() {
+        assetPrefix = '';
+        applyAssets();
+      };
+      testImg.onerror = function() {
+        assetPrefix = 'test/';
+        applyAssets();
+      };
+      testImg.src = 'logo.png';
+    }
 
-    function initCarousel() {
-      dotsContainer.innerHTML = '';
-      GALLERY_SLIDES.forEach((_, idx) => {
-        const dot = document.createElement('div');
-        dot.className = `dot ${idx === 0 ? 'active' : ''}`;
-        dot.onclick = () => goToSlide(idx);
-        dotsContainer.appendChild(dot);
-      });
+    function applyAssets() {
+      // Pasang Logo (logo.png)
+      document.getElementById('schoolLogo').src = assetPrefix + 'logo.png';
+
+      // Pasang Background (bg.png)
+      const bgEl = document.getElementById('bgWallpaper');
+      bgEl.style.backgroundImage = `linear-gradient(180deg, rgba(11, 17, 32, 0.72) 0%, rgba(11, 17, 32, 0.88) 100%), url('${assetPrefix}bg.png')`;
+
+      // Jalankan Slider
+      initSlider();
+    }
+
+    function initSlider() {
+      const dotsContainer = document.getElementById('sliderDots');
+      dotsContainer.innerHTML = SLIDES_DATA.map((_, idx) => 
+        `<div class="dot ${idx === 0 ? 'active' : ''}" onclick="goToSlide(${idx})"></div>`
+      ).join('');
       renderSlide(0);
       startAutoSlide();
     }
 
     function renderSlide(index) {
-      const item = GALLERY_SLIDES[index];
-      imgEl.style.opacity = '0.4';
-      loadSmartImage(imgEl, item.file, "");
-      setTimeout(() => {
-        imgEl.style.opacity = '1';
-      }, 80);
+      const imgEl = document.getElementById('slideImage');
+      const capEl = document.getElementById('slideCaption');
+      const dots = document.querySelectorAll('.dot');
 
-      captionEl.textContent = item.caption;
+      imgEl.src = assetPrefix + SLIDES_DATA[index].file;
+      capEl.textContent = SLIDES_DATA[index].caption;
 
-      const dots = dotsContainer.querySelectorAll('.dot');
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === index);
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === index);
       });
     }
 
     function changeSlide(step) {
-      currentSlide = (currentSlide + step + GALLERY_SLIDES.length) % GALLERY_SLIDES.length;
+      currentSlide = (currentSlide + step + SLIDES_DATA.length) % SLIDES_DATA.length;
       renderSlide(currentSlide);
       resetAutoSlide();
     }
@@ -1221,7 +514,7 @@
 
     function startAutoSlide() {
       slideInterval = setInterval(() => {
-        currentSlide = (currentSlide + 1) % GALLERY_SLIDES.length;
+        currentSlide = (currentSlide + 1) % SLIDES_DATA.length;
         renderSlide(currentSlide);
       }, 4500);
     }
@@ -1231,34 +524,30 @@
       startAutoSlide();
     }
 
-    /* =========================================================================
-       RENDER DAFTAR PENGUMUMAN
-    ========================================================================= */
     function renderAnnouncements() {
-      const container = document.getElementById('announcementList');
-      container.innerHTML = ANNOUNCEMENTS.map((item, idx) => {
-        const isHigh = item.priority.toLowerCase() === 'tinggi';
-        const badgeClass = isHigh ? 'tinggi' : 'normal';
+      const container = document.getElementById('announceContainer');
+      container.innerHTML = ANNOUNCEMENTS.map(item => {
+        const isHigh = item.priority === 'high';
+        const badgeClass = isHigh ? 'badge-high' : 'badge-normal';
+        const iconClass = isHigh ? 'fa-bullhorn' : 'fa-circle-info';
         return `
           <article class="announce-card">
             <div class="announce-top">
-              <span class="badge-priority ${badgeClass}">
-                <i class="fa-solid fa-bullhorn"></i> ${item.priority}
+              <span class="badge ${badgeClass}">
+                <i class="fa-solid ${iconClass}"></i> ${item.label}
               </span>
               <span class="announce-date">
-                <i class="fa-regular fa-calendar-days"></i> ${item.date}
+                <i class="fa-regular fa-calendar"></i> ${item.date}
               </span>
             </div>
             <h3 class="announce-title">${item.title}</h3>
-            <p class="announce-excerpt">${item.content}</p>
+            <p class="announce-excerpt">${item.excerpt}</p>
             <div class="announce-footer">
-              <div class="announce-author">
-                <i class="fa-solid fa-user-pen"></i>
-                <span>${item.author}</span>
-              </div>
-              <button class="announce-readmore" onclick="openAnnouncementDetail(${idx})">
-                <i class="fa-solid fa-eye"></i>
-                <span>Baca Lengkap &rarr;</span>
+              <span class="announce-author">
+                <i class="fa-solid fa-user-gear"></i> ${item.author}
+              </span>
+              <button class="announce-link" onclick="alert('${item.title}')">
+                <i class="fa-regular fa-eye"></i> Baca Lengkap &rarr;
               </button>
             </div>
           </article>
@@ -1266,98 +555,9 @@
       }).join('');
     }
 
-    function openAnnouncementDetail(index) {
-      const item = ANNOUNCEMENTS[index];
-      const isHigh = item.priority.toLowerCase() === 'tinggi';
-
-      document.getElementById('detailTitle').textContent = item.title;
-      document.getElementById('detailDate').textContent = item.date;
-      document.getElementById('detailAuthor').textContent = item.author;
-      document.getElementById('detailContent').textContent = item.content;
-      document.getElementById('detailCategoryBadge').textContent = item.category || 'Umum';
-
-      const badgeEl = document.getElementById('detailPriorityBadge');
-      if (isHigh) {
-        badgeEl.className = 'badge-priority tinggi';
-        badgeEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Prioritas Tinggi';
-      } else {
-        badgeEl.className = 'badge-priority normal';
-        badgeEl.innerHTML = '<i class="fa-solid fa-bullhorn"></i> Prioritas Normal';
-      }
-
-      openModal('modalDetail');
-    }
-
-    /* =========================================================================
-       KONTROL MODAL & INTERAKSI FORM
-    ========================================================================= */
-    function openModal(id) {
-      document.getElementById(id).classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    function backdropClose(event, id) {
-      if (event.target.id === id) {
-        closeModal(id);
-      }
-    }
-
-    function switchModal(closeId, openId) {
-      closeModal(closeId);
-      setTimeout(() => openModal(openId), 120);
-    }
-
-    function switchRole(role) {
-      document.getElementById('tabGuru').classList.toggle('active', role === 'guru');
-      document.getElementById('tabAdmin').classList.toggle('active', role === 'admin');
-    }
-
-    function togglePassword(inputId, iconEl) {
-      const input = document.getElementById(inputId);
-      if (input.type === 'password') {
-        input.type = 'text';
-        iconEl.classList.remove('fa-eye-slash');
-        iconEl.classList.add('fa-eye');
-      } else {
-        input.type = 'password';
-        iconEl.classList.remove('fa-eye');
-        iconEl.classList.add('fa-eye-slash');
-      }
-    }
-
-    function handleUjianSubmit(e) {
-      e.preventDefault();
-      alert('Memverifikasi Token Ujian...');
-    }
-
-    function handleLoginSubmit(e) {
-      e.preventDefault();
-      alert('Memproses Login...');
-    }
-
-    function handleSignupSubmit(e) {
-      e.preventDefault();
-      alert('Pendaftaran Akun Guru berhasil dikirim!');
-      switchModal('modalSignup', 'modalLogin');
-    }
-
-    // Jalankan saat halaman selesai dimuat
     window.addEventListener('DOMContentLoaded', () => {
-      initCarousel();
+      detectFolderAndInit();
       renderAnnouncements();
-    });
-  </script>
-</body>
-</html>
-ript>
-</body>
-</html>
-cements();
     });
   </script>
 </body>
